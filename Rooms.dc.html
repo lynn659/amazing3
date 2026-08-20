@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>html,body{background:#faf6ee;margin:0}</style>
+<link rel="preload" href="_ds/amazing-postnatal-design-system-e378c147-a531-4f56-bee4-32e4969deecc/fonts/FZZZHONGJW.TTF" as="font" type="font/ttf" crossorigin="anonymous">
+<script>
+(function(){
+  var v=document.createElement("div");
+  v.setAttribute("data-boot-veil","1");
+  v.style.cssText="position:fixed;inset:0;z-index:9999;background:#faf6ee;pointer-events:none;transition:opacity 320ms cubic-bezier(.16,1,.3,1)";
+  function mount(){ if(document.body) document.body.appendChild(v); else requestAnimationFrame(mount); }
+  mount();
+  function drop(){ v.style.opacity="0"; setTimeout(function(){ if(v.parentNode) v.parentNode.removeChild(v); },360); }
+  var done=false, go=function(){ if(done) return; done=true; requestAnimationFrame(function(){requestAnimationFrame(drop);}); };
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(go);
+  setTimeout(go, 2200);
+})();
+</script>
+<title>房型配套 | Amazing Postnatal Care 高端月子中心</title>
+<meta name="description" content="KL 与 Johor 分行多种房型配套，依预产期为您安排房型与档期，现场预订享有折扣优惠。">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/amazing-postnatal-design-system-e378c147-a531-4f56-bee4-32e4969deecc/colors_and_type.css">
+<link rel="stylesheet" href="_ds/amazing-postnatal-design-system-e378c147-a531-4f56-bee4-32e4969deecc/styles.css">
+<script src="_ds/amazing-postnatal-design-system-e378c147-a531-4f56-bee4-32e4969deecc/_ds_bundle.js"></script>
+<script src="image-slot.js"></script>
+<style>
+  body, body * { cursor: url("assets/cursor-leaf.svg") 2 2, auto !important; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--paper); font-family: var(--font-zh); }
+  h1, h2, h3, h4, h5, h6, p, div, span, a, button, input, select, summary, details { font-family: inherit; }
+  a { color: var(--brand-sage-deep); text-decoration: none; }
+  a:hover { color: var(--rose-deep); }
+  ::selection { background: var(--rose-blush); }
+  details summary::-webkit-details-marker { display: none; }
+</style>
+</helmet>
+
+<div data-screen-label="房型配套" style="background:var(--paper); color:var(--fg); font-family:var(--font-zh); overflow-x:clip">
+  <dc-import name="SiteNav" hint-size="100%,80px" style="display:block; height:0"></dc-import>
+
+  <section style="background:var(--paper); padding:110px clamp(20px,5vw,40px) 90px">
+    <div style="max-width:1240px; margin:0 auto; display:grid; grid-template-columns:minmax(300px,320px) minmax(0,1fr); gap:32px; align-items:start">
+      <div style="position:sticky; top:110px; background:#fff; border-radius:26px; overflow:hidden; box-shadow:0 10px 40px rgba(93,80,64,.07)">
+        <button onClick="{{ setKL }}" style="{{ headKL }}">
+          <span style="font-size:28.6px; font-weight:700; letter-spacing:.04em">Qliq</span>
+          <span style="font-size:14.3px; font-weight:500; opacity:.75">KL Damansara</span>
+        </button>
+        <div style="padding:0 26px 13px; display:flex; flex-direction:column; gap:2px">
+          <sc-for list="{{ klRooms }}" as="room" hint-placeholder-count="3">
+            <button onClick="{{ room.pick }}" style="{{ room.btnStyle }}">
+              <span style="{{ room.dotStyle }}"></span>
+              <span>{{ room.name }}</span>
+            </button>
+          </sc-for>
+        </div>
+        <button onClick="{{ setJB }}" style="{{ headJB }}">
+          <span style="font-size:28.6px; font-weight:700; letter-spacing:.04em">Johor</span>
+          <span style="font-size:14.3px; font-weight:500; opacity:.75">Puteri Harbour</span>
+        </button>
+        <div style="padding:0 26px 15px; display:flex; flex-direction:column; gap:2px">
+          <sc-for list="{{ jbRooms }}" as="room" hint-placeholder-count="5">
+            <button onClick="{{ room.pick }}" style="{{ room.btnStyle }}">
+              <span style="{{ room.dotStyle }}"></span>
+              <span>{{ room.name }}</span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+
+      <div>
+        <div style="position:relative; border-radius:32px; overflow:hidden; height:460px; background:#fff">
+          <div ref="{{ trackRef }}" style="display:flex; height:460px; width:100%; will-change:transform; transition:transform 520ms cubic-bezier(.16,1,.3,1)">
+            <sc-for list="{{ photos }}" as="ph">
+              <div style="flex:none; width:100%; height:460px">
+                <img src="{{ ph.src }}" alt="{{ ph.hint }}" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block">
+              </div>
+            </sc-for>
+          </div>
+          <button onClick="{{ prevPhoto }}" aria-label="上一张" style="position:absolute; left:18px; top:50%; transform:translateY(-50%); width:46px; height:46px; border:none; border-radius:999px; cursor:pointer; background:rgba(255,255,255,.9); color:var(--brand-bark-deep); font-size:19.8px; box-shadow:0 8px 24px rgba(93,80,64,.16); transition:all 240ms var(--ease)" style-hover="background:#fff">‹</button>
+          <button onClick="{{ nextPhoto }}" aria-label="下一张" style="position:absolute; right:18px; top:50%; transform:translateY(-50%); width:46px; height:46px; border:none; border-radius:999px; cursor:pointer; background:rgba(255,255,255,.9); color:var(--brand-bark-deep); font-size:19.8px; box-shadow:0 8px 24px rgba(93,80,64,.16); transition:all 240ms var(--ease)" style-hover="background:#fff">›</button>
+          <div style="position:absolute; left:0; right:0; bottom:20px; display:flex; justify-content:center; gap:8px">
+            <sc-for list="{{ photos }}" as="ph">
+              <button onClick="{{ ph.go }}" aria-label="切换照片" style="{{ ph.dotStyle }}"></button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="margin-top:24px; background:#fff; border-radius:32px; padding:38px 36px; box-shadow:0 8px 32px rgba(93,80,64,.06)">
+          <div style="display:flex; align-items:baseline; justify-content:space-between; gap:20px; flex-wrap:wrap">
+            <div>
+              <div style="font-size:30.8px; font-weight:700; letter-spacing:.04em; color:var(--fg-strong)">{{ sel.name }}</div>
+              <div style="margin-top:8px; font-size:16.5px; font-weight:500; color:var(--brand-bark)">{{ sel.size }}</div>
+            </div>
+            <div style="font-size:15.4px; font-weight:600; letter-spacing:.06em; color:var(--rose-deep)">{{ sel.badge }}</div>
+          </div>
+          <div style="margin-top:28px; display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:16px">
+            <div style="background:var(--paper); border-radius:20px; padding:22px 20px">
+              <div style="font-family:var(--font-en); font-size:11px; font-weight:700; letter-spacing:.2em; color:var(--brand-sage-deep)">BED</div>
+              <div style="margin-top:10px; font-size:16.5px; font-weight:500; line-height:1.7; color:var(--fg-strong)">{{ sel.bed }}</div>
+            </div>
+            <div style="background:var(--paper); border-radius:20px; padding:22px 20px">
+              <div style="font-family:var(--font-en); font-size:11px; font-weight:700; letter-spacing:.2em; color:var(--brand-sage-deep)">TV</div>
+              <div style="margin-top:10px; font-size:16.5px; font-weight:500; line-height:1.7; color:var(--fg-strong)">{{ sel.tv }}</div>
+            </div>
+            <div style="background:var(--paper); border-radius:20px; padding:22px 20px">
+              <div style="font-family:var(--font-en); font-size:11px; font-weight:700; letter-spacing:.2em; color:var(--brand-sage-deep)">ROOM</div>
+              <div style="margin-top:10px; font-size:16.5px; font-weight:500; line-height:1.7; color:var(--fg-strong)">{{ sel.extra }}</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:24px">
+      <div data-reveal="1" style="background:#fff; border-radius:24px; padding:32px 36px">
+        <div style="font-size:15.4px; font-weight:600; letter-spacing:.14em; color:var(--brand-sage-deep)">所有房型共同配置</div>
+        <div style="margin-top:18px; display:flex; flex-wrap:wrap; gap:10px">
+          <span style="background:var(--paper); border-radius:999px; padding:10px 18px; font-size:15.4px; font-weight:500; color:var(--fg-strong)">哺乳椅</span>
+          <span style="background:var(--paper); border-radius:999px; padding:10px 18px; font-size:15.4px; font-weight:500; color:var(--fg-strong)">冰箱及保险箱</span>
+          <span style="background:var(--paper); border-radius:999px; padding:10px 18px; font-size:15.4px; font-weight:500; color:var(--fg-strong)">I-Remote 平板电脑</span>
+          <span style="background:var(--paper); border-radius:999px; padding:10px 18px; font-size:15.4px; font-weight:500; color:var(--fg-strong)">全屋智能控光</span>
+          <span style="background:var(--paper); border-radius:999px; padding:10px 18px; font-size:15.4px; font-weight:500; color:var(--fg-strong)">吹风筒 · 空调 · 无限上网</span>
+          <span style="background:var(--paper); border-radius:999px; padding:10px 18px; font-size:15.4px; font-weight:500; color:var(--fg-strong)">妈妈护理 · 宝宝护理</span>
+          <span style="background:var(--paper); border-radius:999px; padding:10px 18px; font-size:15.4px; font-weight:500; color:var(--fg-strong)">入住新手包</span>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff; padding:90px clamp(20px,5vw,40px)">
+    <div style="max-width:1240px; margin:0 auto">
+      <h2 data-reveal="1" style="margin:0 0 32px; font-weight:700; font-size:clamp(28.6px,2.9vw,37.4px); letter-spacing:.04em; color:var(--fg-strong)">这些都为您备好了，轻松拎包入住</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px">
+        <div data-reveal="1" style="background:var(--rose-petal); border-radius:32px; padding:40px 36px">
+          <div style="font-family:var(--font-en); font-size:13.2px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:var(--rose-deep)">For Baby</div>
+          <div style="margin-top:20px; display:flex; flex-wrap:wrap; gap:10px">
+            <span style="background:#fff; border-radius:999px; padding:11px 18px; font-size:15.4px; font-weight:500; color:var(--fg-strong)">纯棉宝宝衣（每日清洗）</span>
+            <span style="background:#fff; border-radius:999px; padding:11px 18px; font-size:15.4px; font-weight:500; color:var(--fg-strong)">襁褓巾</span>
+            <span style="background:#fff; border-radius:999px; padding:11px 18px; font-size:15.4px; font-weight:500; color:var(--fg-strong)">浴巾与手巾</span>
+            <span style="background:#fff; border-radius:999px; padding:11px 18px; font-size:15.4px; font-weight:500; color:var(--fg-strong)">婴儿奶粉（全程提供）</span>
+            <span style="background:#fff; border-radius:999px; padding:11px 18px; font-size:15.4px; font-weight:500; color:var(--fg-strong)">纸尿片（全程提供）</span>
+            <span style="background:#fff; border-radius:999px; padding:11px 18px; font-size:15.4px; font-weight:500; color:var(--fg-strong)">奶瓶奶嘴消毒器</span>
+          </div>
+        </div>
+        <div data-reveal="2" style="background:var(--brand-sage-mist); border-radius:32px; padding:40px 36px">
+          <div style="font-family:var(--font-en); font-size:13.2px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:var(--brand-sage-deep)">For Mama</div>
+          <div style="margin-top:20px; display:flex; flex-wrap:wrap; gap:10px">
+            <span style="background:#fff; border-radius:999px; padding:11px 18px; font-size:15.4px; font-weight:500; color:var(--fg-strong)">纯棉哺乳妈妈服（每日一套）</span>
+            <span style="background:#fff; border-radius:999px; padding:11px 18px; font-size:15.4px; font-weight:500; color:var(--fg-strong)">浴巾与面巾</span>
+            <span style="background:#fff; border-radius:999px; padding:11px 18px; font-size:15.4px; font-weight:500; color:var(--fg-strong)">哺乳枕</span>
+            <span style="background:#fff; border-radius:999px; padding:11px 18px; font-size:15.4px; font-weight:500; color:var(--fg-strong)">吹风机 · 沐浴乳</span>
+            <span style="background:#fff; border-radius:999px; padding:11px 18px; font-size:15.4px; font-weight:500; color:var(--fg-strong)">4 款挤奶器（7 天免费试用）</span>
+            <span style="background:#fff; border-radius:999px; padding:11px 18px; font-size:15.4px; font-weight:500; color:var(--fg-strong)">月子拖鞋</span>
+          </div>
+        </div>
+      </div>
+      <div data-reveal="1" style="margin-top:44px">
+        <h3 style="margin:0 0 20px; font-weight:700; font-size:24.2px; letter-spacing:.04em; color:var(--fg-strong)">附加服务</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:10px">
+          <span style="background:var(--rose-petal); border-radius:999px; padding:12px 22px; font-size:15.4px; font-weight:500; color:var(--rose-deep)">产后按摩服务</span>
+          <span style="background:var(--brand-sage-mist); border-radius:999px; padding:12px 22px; font-size:15.4px; font-weight:500; color:var(--brand-sage-deep)">宝宝写真</span>
+          <span style="background:var(--rose-petal); border-radius:999px; padding:12px 22px; font-size:15.4px; font-weight:500; color:var(--rose-deep)">产后修复仪</span>
+          <span style="background:var(--brand-sage-mist); border-radius:999px; padding:12px 22px; font-size:15.4px; font-weight:500; color:var(--brand-sage-deep)">新生儿纪念品</span>
+          <span style="background:var(--rose-petal); border-radius:999px; padding:12px 22px; font-size:15.4px; font-weight:500; color:var(--rose-deep)">太空舱</span>
+          <span style="background:var(--brand-sage-mist); border-radius:999px; padding:12px 22px; font-size:15.4px; font-weight:500; color:var(--brand-sage-deep)">租借挤奶器</span>
+          <span style="background:var(--rose-petal); border-radius:999px; padding:12px 22px; font-size:15.4px; font-weight:500; color:var(--rose-deep)">泌乳师通乳服务</span>
+          <span style="background:var(--brand-sage-mist); border-radius:999px; padding:12px 22px; font-size:15.4px; font-weight:500; color:var(--brand-sage-deep)">满月抓周仪式</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" next-href="Contact.dc.html" next-label="联系我们" next-desc="预约参观、分行地址与常见问题" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { days: 28, branch: 'KL', roomIdx: 0, photoIdx: 0 };
+
+  componentDidMount() {
+    const ease = 'cubic-bezier(.16,1,.3,1)';
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    els.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(22px)';
+      el.style.transition = 'opacity 800ms ' + ease + ', transform 800ms ' + ease;
+    });
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const d = (parseInt(e.target.getAttribute('data-reveal'), 10) || 1) - 1;
+        e.target.style.transitionDelay = (d * 100) + 'ms';
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'none';
+        this._io.unobserve(e.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    els.forEach(el => this._io.observe(el));
+
+    this._onResize = () => this.applyTrack();
+    window.addEventListener('resize', this._onResize);
+    this.applyTrack();
+  }
+  _trackRef = (el) => { this._track = el; if (el) requestAnimationFrame(() => this.applyTrack()); };
+
+  applyTrack() {
+    const t = this._track;
+    if (!t || !t.parentElement) return;
+    const w = t.parentElement.clientWidth;
+    t.style.transform = 'translate3d(' + (-(this.state.photoIdx || 0) * w) + 'px,0,0)';
+  }
+  componentDidUpdate() { this.applyTrack(); }
+  componentWillUnmount() { if (this._io) this._io.disconnect(); if (this._onResize) window.removeEventListener('resize', this._onResize); }
+
+  tab(active) {
+    return {
+      border: 'none', cursor: 'pointer', fontFamily: 'var(--font-zh)', fontSize: '15.4px', fontWeight: 600,
+      letterSpacing: '.06em', padding: '11px 22px', borderRadius: '999px',
+      background: active ? 'var(--brand-bark-deep)' : 'transparent',
+      color: active ? '#fff' : 'var(--brand-bark)',
+      transition: 'all 240ms cubic-bezier(.16,1,.3,1)'
+    };
+  }
+
+  head(active, first) {
+    return {
+      display: 'flex', alignItems: 'baseline', gap: '10px', textAlign: 'left', border: 'none',
+      cursor: 'pointer', fontFamily: 'var(--font-zh)',
+      padding: '14px 26px 11px', width: '100%', boxSizing: 'border-box',
+      background: 'transparent', borderTop: first ? 'none' : '1px solid var(--border)',
+      color: active ? 'var(--brand-bark-deep)' : 'var(--taupe)',
+      transition: 'color 240ms cubic-bezier(.16,1,.3,1)'
+    };
+  }
+
+  roomRow(active) {
+    return {
+      display: 'flex', alignItems: 'center', gap: '12px', textAlign: 'left', border: 'none',
+      cursor: 'pointer', fontFamily: 'var(--font-zh)', background: 'transparent',
+      padding: '6px 0', width: '100%', boxSizing: 'border-box',
+      fontSize: active ? '18px' : '16px',
+      fontWeight: active ? 700 : 500,
+      color: active ? 'var(--rose-deep)' : 'var(--brand-bark)',
+      transition: 'all 240ms cubic-bezier(.16,1,.3,1)'
+    };
+  }
+  dot(active) {
+    return { width: '6px', height: '6px', flex: 'none', borderRadius: '999px', background: active ? 'var(--rose-deep)' : 'var(--stone)' };
+  }
+
+  build(list, branch) {
+    return list.map((r, i) => {
+      const active = this.state.branch === branch && i === this.state.roomIdx;
+      return Object.assign({}, r, {
+        btnStyle: this.roomRow(active),
+        dotStyle: this.dot(active),
+        pick: () => this.setState({ branch: branch, roomIdx: i, photoIdx: 0 })
+      });
+    });
+  }
+
+  renderVals() {
+    const d = this.state.days;
+    const note = d + ' 天配套';
+
+    const klRooms = [
+      { key: 'kl-premium', n: 4, name: 'Premium 尊享房', size: '300 sqft', priceNote: note, bed: 'Queen Size 双人床', tv: '43 寸智能 LED 电视', extra: '独立浴室 · 哺乳椅 · 梳妆台', badge: '最多人选 · 推荐' },
+      { key: 'kl-vip', n: 4, name: 'VIP 贵宾房', size: '400 sqft', priceNote: note, bed: 'King Size 双人床', tv: '43 寸智能 LED 电视', extra: '独立浴室 · 哺乳椅 · 双人饭桌 & 小沙发', badge: '' },
+      { key: 'kl-supreme', n: 4, name: 'Supreme 至尊套房', size: '800 sqft', priceNote: note, bed: 'Super King + Super Single', tv: '43 寸智能 LED 电视', extra: '餐厅/客厅与寝区分离 · 梳妆台 · 微波炉', badge: '' }
+    ];
+
+    const jbRooms = [
+      { key: 'jb-standard', n: 2, name: 'Standard 标准房', size: '125 sqft', priceNote: note, bed: 'Queen Size 双人床', tv: '43 寸智能 LED 电视', extra: '共用浴室 · 办公桌椅 · 冰箱及保险箱', badge: '' },
+      { key: 'jb-deluxe', n: 4, name: 'Deluxe 雅致房', size: '180 sqft', priceNote: note, bed: 'Queen Size 双人床', tv: '43 寸智能 LED 电视', extra: '独立浴室 · 办公桌椅 · 冰箱及保险箱', badge: '' },
+      { key: 'jb-premium', n: 4, name: 'Premium 尊享房', size: '150 – 300 sqft', priceNote: note, bed: 'Queen Size 双人床', tv: '43 寸智能 LED 电视', extra: '独立浴室 · 办公桌椅 · 梳妆台', badge: '最多人选 · 推荐' },
+      { key: 'jb-vip', n: 3, name: 'VIP 贵宾房', size: '250 sqft', priceNote: note, bed: 'King Size 双人床', tv: '43 寸智能 LED 电视', extra: '独立浴室 · 哺乳椅 · 双人饭桌 & 小沙发', badge: '' },
+      { key: 'jb-vvip', n: 5, name: 'VVIP 至尊房', size: '360 – 390 sqft', priceNote: note, bed: 'King Size 双人床 · Getha 枕头套组', tv: '43 寸智能 LED 电视', extra: '餐厅/客厅与寝区分离 · 独立浴室 · 微波炉', badge: '' }
+    ];
+
+    const isKL = this.state.branch === 'KL';
+    const list = isKL ? klRooms : jbRooms;
+    const idx = Math.min(this.state.roomIdx, list.length - 1);
+    const sel = list[idx];
+    const count = sel.n || 1;
+    const pIdx = Math.min(this.state.photoIdx || 0, count - 1);
+    const photos = [];
+    for (let n = 0; n < count; n++) {
+      photos.push({
+        src: (window.ROOMIMG && window.ROOMIMG['room-' + sel.key + '-' + n]) || ('assets/room-' + sel.key + '-' + n + '.webp'),
+        hint: sel.name + ' ' + (n + 1),
+        go: () => this.setState({ photoIdx: n }),
+        dotStyle: {
+          width: n === pIdx ? '22px' : '8px', height: '8px', borderRadius: '999px', border: 'none',
+          cursor: 'pointer', padding: 0,
+          background: n === pIdx ? 'var(--brand-bark-deep)' : 'rgba(255,255,255,.85)',
+          boxShadow: '0 2px 8px rgba(93,80,64,.2)',
+          transition: 'all 240ms cubic-bezier(.16,1,.3,1)'
+        }
+      });
+    }
+
+    return {
+      isKL, isJB: !isKL, sel, photos,
+      trackRef: this._trackRef,
+      prevPhoto: () => this.setState(s => ({ photoIdx: ((s.photoIdx || 0) + count - 1) % count })),
+      nextPhoto: () => this.setState(s => ({ photoIdx: ((s.photoIdx || 0) + 1) % count })),
+      klRooms: this.build(klRooms, 'KL'),
+      jbRooms: this.build(jbRooms, 'JB'),
+      setKL: () => this.setState({ branch: 'KL', roomIdx: 0 }),
+      setJB: () => this.setState({ branch: 'JB', roomIdx: 0 }),
+      headKL: this.head(isKL, true), headJB: this.head(!isKL, false),
+      set28: () => this.setState({ days: 28 }),
+      set42: () => this.setState({ days: 42 }),
+      tab28: this.tab(d === 28), tab42: this.tab(d === 42),
+      rows: [
+        { name: '产后按摩服务', p: '1', v: '2', s: '4' },
+        { name: '脸部拨筋', p: '1', v: '1', s: '2' },
+        { name: '宝宝游泳', p: '1', v: '2', s: '3' },
+        { name: '中药足浴', p: '1', v: '2', s: '4' },
+        { name: '洗头护理', p: '—', v: '1', s: '2' },
+        { name: '宝宝按摩', p: '1', v: '2', s: '3' },
+        { name: '鲜炖滴鸡精', p: '1', v: '2', s: '3' },
+        { name: '宝宝纪念品', p: '—', v: '1', s: '1' },
+        { name: '鲜炖燕窝', p: '1', v: '2', s: '3' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
